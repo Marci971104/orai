@@ -41,7 +41,9 @@ public class App {//
             System.err.println("Hiba! A fájlbaírás sikertelen. Keresse meg a fejlesztőt.");
         }
 
-        if(Success == 1) { System.out.println("Ok. A kiírás sikeres.");  }else {  System.out.println("Hiba! A kiírás sikertelen"); }
+        if(Success == 1) { System.out.println("Ok. A kiírás sikeres.");  }
+        
+        else {  System.out.println("Hiba! A kiírás sikertelen"); }
 
     }
 
