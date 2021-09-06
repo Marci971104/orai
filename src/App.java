@@ -3,9 +3,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class App {//
+public class App {
     public static void main(String[] args) {
-        NameCard();
+        aboutPrint();
         //Fejrész kiírása
         System.out.println("Jelszavak");
         //Verzió kiírása
@@ -16,8 +16,8 @@ public class App {//
 
         System.out.print("Felhasználónév: ");
         // A b változó tárolja a fnév
-        String Name = scan.nextLine();
-        System.out.print("Jelszó: ");                                                //Nem jó megnevezés//
+        String Name = scan.nextLine(); 
+        System.out.print("Jelszó: ");                                           //Nem jó megnevezés//
         String Pw = scan.nextLine();
         System.out.print("Hely: ");
         String Place = scan.nextLine();
@@ -26,16 +26,15 @@ public class App {//
         try {
             /* 
             A jelszó, a felhasználónév és a 
-            használati helye a passList 
-            objektumban van tárolva            
-            */
-            Store passList = new Store(Name, Pw, Place);
-            FileWriter fwrite = new FileWriter("pass.txt");
-            PrintWriter pwr = new PrintWriter(fwrite);
-            pwr.print(passList.user);
-            if(!passList.hollow()) { pwr.print(passList.retrieval()); }
-            pwr.print(passList.place);
-            pwr.close();
+            használati helye a profile 
+            objektumban van tárolva                    */
+            Profile profile = new Profile(Name, Pw, Place);
+            FileWriter fileWriter = new FileWriter("pass.txt");
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print(profile.user);
+            if(!profile.isPassEmpty()) { printWriter.print(profile.getPass()); }
+            printWriter.print(profile.place);
+            printWriter.close();
            Success = 1;
         } catch (IOException exc) {
             System.err.println("Hiba! A fájlbaírás sikertelen. Keresse meg a fejlesztőt.");
@@ -47,7 +46,8 @@ public class App {//
 
     }
 
-    public static void NameCard() {
+    public static void aboutPrint() {
         System.out.println("Nagy János");
+
     }
 }
